@@ -1,0 +1,56 @@
+type Query {
+  ping: String!
+  createSession: String!
+  testSession(sessionId: String!): String!
+  getPlayer(sessionId: String!, player: String!): Player!
+}
+
+type Player {
+  ActivePlayerId: Int!
+  Created_Datetime: String
+  HoursPlayed: Int!
+  Id: Int!
+  Last_Login_Datetime: String,
+  Leaves: Int!
+  Level: Int!
+  Losses: Int!
+  MasteryLevel: Int!
+  MergedPlayers: String
+  Name: String,
+  Personal_Status_Message: String,
+  Platform: String,
+  RankedConquest: Ranked
+  RankedController: Ranked
+  RankedKBM: Ranked
+  Region: String
+  TeamId: String!
+  Team_Name: String
+  Tier_Conquest: Int!
+  Tier_Conquest_Label: String
+  Tier_RankedController: Int!
+  Tier_RankedController_Label: String
+  Tier_RankedKBM: Int!
+  Tier_RankedKBM_Label: String
+  Total_Achievements: Int!
+  Total_Worshippers: Int!
+  Wins: Int!
+  hz_gamer_tag: String,
+  hz_player_name: String
+  ret_msg: String
+}
+
+type Ranked {
+  Leaves: Int!
+  Losses: Int!
+  Name: String!,
+  Points: Int!
+  PrevRank: Int!
+  Rank: Int!
+  Season: Int!
+  Tier: Int!
+  Tier_Label: String!
+  Trend: Int!
+  Wins: Int!
+  player_id: String,
+  ret_msg: String
+}
