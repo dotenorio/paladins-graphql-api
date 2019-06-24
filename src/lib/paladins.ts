@@ -2,7 +2,6 @@ import config from "../config"
 import axios from "axios";
 import md5 from "md5";
 import moment from "moment";
-import { writeFileSync, readFileSync, existsSync } from "fs";
 
 const getTimestamp = () => {
   return moment.utc().format('YYYYMMDDHHmmss')
