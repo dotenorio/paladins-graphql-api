@@ -6,7 +6,6 @@
   "env": {
     "PALADINS_API_URL": "http://api.paladins.com/paladinsapi.svc",
     "PALADINS_DEV_ID": "@paladins_dev_id",
-    "PALADINS_AUTH_KEY": "@paladins_auth_key",
-    "NODE_ENV": "production"
+    "PALADINS_AUTH_KEY": "@paladins_auth_key"
   }
 }
