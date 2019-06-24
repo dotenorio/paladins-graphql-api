@@ -21,8 +21,8 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
-    "dev": "nodemon --watch 'src/**/*' -e ts,tsx,graphql --exec ts-node ./src/server.ts",
+    "dev": "nodemon --watch 'src/**/*' -e ts,tsx,graphql --exec ts-node ./src/index.ts",
     "build": "tsc",
-    "prod": "node ./dist/server"
+    "prod": "node ./dist/index"
   }
 }
