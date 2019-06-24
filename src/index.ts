@@ -12,7 +12,7 @@ const resolvers = {
   Query
 }
  
-const server = new ApolloServer({ typeDefs, resolvers })
+const server = new ApolloServer({ typeDefs, resolvers, playground: true })
  
 const app = new Koa();
 server.applyMiddleware({ app, path: '/' })
