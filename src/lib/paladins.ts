@@ -102,6 +102,15 @@ const testSession = async (parent, { sessionId }) => {
   return data
 }
 
+const getHirezServerStatus = async (parent, { sessionId }) => {
+  const { data } = await axios.get(buildUrl({
+    method: 'gethirezserverstatus',
+    sessionId
+  }))
+
+  return data
+}
+
 const getPlayer = async (parent, { sessionId, player }) => {
   const { data } = await axios.get(buildUrl({
     method: 'getplayer',
@@ -119,12 +128,13 @@ const getPlayer = async (parent, { sessionId, player }) => {
       data[0].Tier_RankedKBM_Label = tiers[data[0].Tier_RankedKBM]
   }
 
-  return data.length ? data[0] : 'no results found'
+  return data
 }
 
 export {
   ping,
   createSession,
   testSession,
+  getHirezServerStatus,
   getPlayer
 }

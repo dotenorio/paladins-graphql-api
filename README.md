@@ -39,6 +39,7 @@ Now, open the link http://localhost:4000/ in the browser and _voìla_. You can d
 * createSession
 * testSession
 * getUser
+* getHirezServerStatus
 * _Other methods in progress..._
 
 ## Postman

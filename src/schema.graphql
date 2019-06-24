@@ -3,6 +3,7 @@ type Query {
   createSession: String!
   testSession(sessionId: String!): String!
   getPlayer(sessionId: String!, player: String!): Player!
+  getHirezServerStatus(sessionId: String!): [HirezServerStatus!]!
 }
 
 type Player {
@@ -53,4 +54,14 @@ type Ranked {
   Wins: Int!
   player_id: String,
   ret_msg: String
+}
+
+type HirezServerStatus {
+  entry_datetime: String
+  environment: String
+  limited_access: Boolean!,
+  platform: String,
+  ret_msg: String,
+  status: String,
+  version: String
 }
