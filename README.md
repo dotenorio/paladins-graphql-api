@@ -1,6 +1,6 @@
 # Paladins GraphQL API
 
-A wordefull GraphQL API to get any data from [Hirez Paladins API](https://docs.google.com/document/d/1OFS-3ocSx-1Rvg4afAnEHlT3917MAK_6eJTR6rzr-BM/edit#)
+A wordefull GraphQL API to get any data from [Hirez Paladins API](https://docs.google.com/document/d/1OFS-3ocSx-1Rvg4afAnEHlT3917MAK_6eJTR6rzr-BM/edit#).
 
 ## How to
 
@@ -11,7 +11,7 @@ $ cd paladins-graphql-api
 $ yarn
 ```
 
-Configure environment:
+Configure the environment variables:
 ```
 - Open the file .env.example in any editor
 - Change value of parameters
