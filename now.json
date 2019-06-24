@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "paladins-graphql-api",
+  "builds": [{ "src": "src/index.ts", "use": "@now/node-server" }],
+  "routes": [{ "src": "/.*", "dest": "src/index.ts" }],
+  "env": {
+    "PALADINS_API_URL": "http://api.paladins.com/paladinsapi.svc",
+    "PALADINS_DEV_ID": "@paladins_dev_id",
+    "PALADINS_AUTH_KEY": "@paladins_auth_key",
+    "NODE_ENV": "production"
+  }
+}

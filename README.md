@@ -27,7 +27,7 @@ After this, start the dev enviroment:
 $ yarn dev
 ```
 
-Now, open the link http://localhost:4000/graphql in the browser and _voìla_. You can do **queries**, see **schema** and the **documentation**.
+Now, open the link http://localhost:4000/ in the browser and _voìla_. You can do **queries**, see **schema** and the **documentation**.
 
 ## Available Methods
 
