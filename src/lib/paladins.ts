@@ -18,12 +18,25 @@ const generateSignature = (method: string) => {
   ].join(''))
 }
 
-const buildUrl = ({ method, sessionId = null, player = null, xSessionId = null }) => {
+const buildUrl = ({
+  method,
+  sessionId = null,
+  player = null,
+  xSessionId = null,
+  matchId = null
+}) => {
   const signature = generateSignature(method)
   const timestamp = getTimestamp()
 
   sessionId = sessionId || xSessionId
   sessionId = sessionId || '--'
+
+  let extraParameter = null
+  if (player) {
+    extraParameter = player
+  } else if (matchId) {
+    extraParameter = matchId
+  }
 
   let url = [
     config.PALADINS_API_URL,
@@ -32,7 +45,7 @@ const buildUrl = ({ method, sessionId = null, player = null, xSessionId = null }
     signature,
     sessionId,
     timestamp,
-    player
+    extraParameter
   ].join('/')
    .replace('--/', '')
    .replace(/\/$/, '')
@@ -124,6 +137,17 @@ const getDataUsed = async (parent, { sessionId = null }, { xSessionId = null }) 
   }))
 
   return data[0]
+}
+
+const getDemoDetails = async (parent, { sessionId = null, matchId }, { xSessionId = null }) => {
+  const { data } = await axios.get(buildUrl({
+    method: 'getdemodetails',
+    sessionId,
+    matchId,
+    xSessionId
+  }))
+
+  return data[0]
 } 
 
 const getPlayer = async (parent, { sessionId = null, player }, { xSessionId = null }) => {
@@ -135,13 +159,13 @@ const getPlayer = async (parent, { sessionId = null, player }, { xSessionId = nu
   }))
 
   if (data.length && !data[0].ret_msg) {
-      data[0].RankedConquest.Tier_Label = tiers[data[0].RankedConquest.Tier]
-      data[0].RankedController.Tier_Label = tiers[data[0].RankedController.Tier]
-      data[0].RankedKBM.Tier_Label = tiers[data[0].RankedKBM.Tier]
-  
-      data[0].Tier_Conquest_Label = tiers[data[0].Tier_Conquest]
-      data[0].Tier_RankedController_Label = tiers[data[0].Tier_RankedController]
-      data[0].Tier_RankedKBM_Label = tiers[data[0].Tier_RankedKBM]
+    data[0].RankedConquest.Tier_Label = tiers[data[0].RankedConquest.Tier]
+    data[0].RankedController.Tier_Label = tiers[data[0].RankedController.Tier]
+    data[0].RankedKBM.Tier_Label = tiers[data[0].RankedKBM.Tier]
+
+    data[0].Tier_Conquest_Label = tiers[data[0].Tier_Conquest]
+    data[0].Tier_RankedController_Label = tiers[data[0].Tier_RankedController]
+    data[0].Tier_RankedKBM_Label = tiers[data[0].Tier_RankedKBM]
   }
 
   return data[0]
@@ -153,5 +177,6 @@ export {
   testSession,
   getHirezServerStatus,
   getDataUsed,
+  getDemoDetails,
   getPlayer
 }

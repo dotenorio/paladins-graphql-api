@@ -5,6 +5,7 @@ type Query {
   getPlayer(sessionId: String, player: String!): Player!
   getHirezServerStatus(sessionId: String): [HirezServerStatus!]!
   getDataUsed(sessionId: String): DataUsed!
+  getDemoDetails(sessionId: String, matchId: Int!): DemoDetails!
 }
 
 type Player {
@@ -76,4 +77,29 @@ type DataUsed {
   Total_Requests_Today: Int!
   Total_Sessions_Today: Int!
   ret_msg: String
+}
+
+type DemoDetails {
+  BanId1: Int!
+  BanId2: Int!
+  BanId3: Int!
+  BanId4: Int!
+  Entry_Datetime: String
+  Match: Int!
+  Match_Time: Int!
+  Offline_Spectators: Int!
+  Queue: String
+  Realtime_Spectators: Int!
+  Recording_Ended: String
+  Recording_Started: String
+  Team1_AvgLevel: Int!
+  Team1_Gold: Int!
+  Team1_Kills: Int!
+  Team1_Score: Int!
+  Team2_AvgLevel: Int!
+  Team2_Gold: Int!
+  Team2_Kills: Int!
+  Team2_Score: Int!
+  Winning_Team: Int!
+  ret_msg: String  
 }

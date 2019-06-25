@@ -4,6 +4,7 @@ import {
   testSession,
   getHirezServerStatus,
   getDataUsed,
+  getDemoDetails,
   getPlayer
 } from "../lib/paladins";
 
@@ -13,5 +14,6 @@ export {
   testSession,
   getHirezServerStatus,
   getDataUsed,
+  getDemoDetails,
   getPlayer
 }
