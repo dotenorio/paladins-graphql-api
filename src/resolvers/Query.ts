@@ -5,6 +5,7 @@ import {
   getHirezServerStatus,
   getDataUsed,
   getDemoDetails,
+  getEsportsProLeagueDetails,
   getPlayer
 } from "../lib/paladins";
 
@@ -15,5 +16,6 @@ export {
   getHirezServerStatus,
   getDataUsed,
   getDemoDetails,
+  getEsportsProLeagueDetails,
   getPlayer
 }

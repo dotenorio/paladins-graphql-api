@@ -148,6 +148,16 @@ const getDemoDetails = async (parent, { sessionId = null, matchId }, { xSessionI
   }))
 
   return data[0]
+}
+
+const getEsportsProLeagueDetails = async (parent, { sessionId = null }, { xSessionId = null }) => {
+  const { data } = await axios.get(buildUrl({
+    method: 'getesportsproleaguedetails',
+    sessionId,
+    xSessionId
+  }))
+
+  return data
 } 
 
 const getPlayer = async (parent, { sessionId = null, player }, { xSessionId = null }) => {
@@ -178,5 +188,6 @@ export {
   getHirezServerStatus,
   getDataUsed,
   getDemoDetails,
+  getEsportsProLeagueDetails,
   getPlayer
 }
