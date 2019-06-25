@@ -91,6 +91,7 @@ type DemoDetails {
   Match_Time: Int!
   Offline_Spectators: Int!
   Queue: String
+  Queue_Label: String
   Realtime_Spectators: Int!
   Recording_Ended: String
   Recording_Started: String

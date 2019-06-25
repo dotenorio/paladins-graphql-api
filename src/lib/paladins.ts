@@ -55,6 +55,35 @@ const buildUrl = ({
   return url
 }
 
+const queues = {
+  "424": "LIVE Siege",
+  "425": "LIVE Practice Siege",
+  "428": "LIVE Competitive",
+  "445": "LIVE Test Maps",
+  "452": "LIVE Onslaught",
+  "453": "LIVE Onslaught Practice",
+  "465": "Classic Siege",
+  "469": "LIVE Team Deathmatch",
+  "470": "LIVE Team Deathmatch Practice",
+  "468": "Custom Team Deathmatch Trade District",
+  "471": "Custom Team Deathmatch Foreman's Rise",
+  "472": "Custom Team Deathmatch Magistrate's Archives",
+  "423": "Custom Siege Stone Keep",
+  "430": "Custom Siege Timber Mill",
+  "431": "Custom Siege Fish Market",
+  "432": "Custom Siege Frozen Guard",
+  "433": "Custom Siege Frog Isle",
+  "438": "Custom Siege Jaguar Falls",
+  "439": "Custom Siege Ice Mines",
+  "440": "Custom Siege Serpent Beach",
+  "458": "Custom Siege Brightmarsh",
+  "459": "Custom Siege Splitstone Quarry",
+  "454": "Custom Onslaught Snowfall Junction",
+  "455": "Custom Onslaught Primal Court",
+  "462": "Custom Onslaught Foreman's Rise",
+  "464": "Custom Onslaught Magistrate's Archives"
+}
+
 const tiers = {
   0: 'Unranked',
   1: 'Bronze V',
@@ -147,6 +176,10 @@ const getDemoDetails = async (parent, { sessionId = null, matchId }, { xSessionI
     matchId,
     xSessionId
   }))
+
+  if (data.length && data[0]) {
+    data[0].Queue_Label = queues[data[0].Queue]
+  }
 
   return data[0]
 }
