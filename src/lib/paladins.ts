@@ -18,16 +18,19 @@ const generateSignature = (method: string) => {
   ].join(''))
 }
 
-const buildUrl = ({ method, sessionId = null, player = null }) => {
+const buildUrl = ({ method, sessionId = null, player = null, xSessionId = null }) => {
   const signature = generateSignature(method)
   const timestamp = getTimestamp()
+
+  sessionId = sessionId || xSessionId
+  sessionId = sessionId || '--'
 
   let url = [
     config.PALADINS_API_URL,
     `${method}Json`,
     config.PALADINS_DEV_ID,
     signature,
-    sessionId || '--',
+    sessionId,
     timestamp,
     player
   ].join('/')
@@ -92,39 +95,43 @@ const createSession = async () => {
   return session_id || ret_msg
 }
 
-const testSession = async (parent, { sessionId }) => {
+const testSession = async (parent, { sessionId = null }, { xSessionId = null }) => {
   const { data } = await axios.get(buildUrl({
     method: 'testsession',
-    sessionId
+    sessionId,
+    xSessionId
   }))
 
   const test = /Invalid session id/.test(data)
   return data
 }
 
-const getHirezServerStatus = async (parent, { sessionId }) => {
+const getHirezServerStatus = async (parent, { sessionId = null }, { xSessionId = null }) => {
   const { data } = await axios.get(buildUrl({
     method: 'gethirezserverstatus',
-    sessionId
+    sessionId,
+    xSessionId
   }))
 
   return data
 }
 
-const getDataUsed = async (parent, { sessionId }) => {
+const getDataUsed = async (parent, { sessionId = null }, { xSessionId = null }) => {
   const { data } = await axios.get(buildUrl({
     method: 'getdataused',
-    sessionId
+    sessionId,
+    xSessionId
   }))
 
   return data[0]
 } 
 
-const getPlayer = async (parent, { sessionId, player }) => {
+const getPlayer = async (parent, { sessionId = null, player }, { xSessionId = null }) => {
   const { data } = await axios.get(buildUrl({
     method: 'getplayer',
     sessionId,
-    player
+    player,
+    xSessionId
   }))
 
   if (data.length && !data[0].ret_msg) {

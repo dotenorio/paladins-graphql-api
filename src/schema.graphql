@@ -1,10 +1,10 @@
 type Query {
   ping: String!
   createSession: String!
-  testSession(sessionId: String!): String!
-  getPlayer(sessionId: String!, player: String!): Player!
-  getHirezServerStatus(sessionId: String!): [HirezServerStatus!]!
-  getDataUsed(sessionId: String!): DataUsed!
+  testSession(sessionId: String): String!
+  getPlayer(sessionId: String, player: String!): Player!
+  getHirezServerStatus(sessionId: String): [HirezServerStatus!]!
+  getDataUsed(sessionId: String): DataUsed!
 }
 
 type Player {

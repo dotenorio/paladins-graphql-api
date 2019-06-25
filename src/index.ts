@@ -12,7 +12,17 @@ const resolvers = {
   Query
 }
  
-const server = new ApolloServer({ typeDefs, resolvers, playground: true, introspection: true })
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: request => {
+    return {
+      xSessionId: request.ctx.request.headers['x-session-id']
+    }
+  },
+  playground: true,
+  introspection: true
+})
  
 const app = new Koa();
 server.applyMiddleware({ app, path: '/' })
