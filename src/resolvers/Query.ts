@@ -1,3 +1,3 @@
-import * as paladins from "../lib/paladins";
+import * as paladins from "../paladins";
 
 export { paladins }
