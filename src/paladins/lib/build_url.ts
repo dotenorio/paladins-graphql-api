@@ -22,7 +22,8 @@ const buildUrl = ({
   sessionId = null,
   player = null,
   xSessionId = null,
-  matchId = null
+  matchId = null,
+  language = null
 }) => {
   const signature = generateSignature(method)
   const timestamp = getTimestamp()
@@ -34,8 +35,10 @@ const buildUrl = ({
 
   if (player) {
     extraParameter = player
-  } if (matchId) {
+  } else if (matchId) {
     extraParameter = matchId
+  } else if (language) {
+    extraParameter = language
   }
 
   let url = [

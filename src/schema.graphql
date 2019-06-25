@@ -7,6 +7,8 @@ type Query {
   getDemoDetails(sessionId: String, matchId: Int!): DemoDetails!
   getEsportsProLeagueDetails(sessionId: String): [EsportsProLeagueDetails!]!
   getFriends(sessionId: String, player: String!): [Friends!]!
+  getChampionRanks(sessionId: String, player: String!): [ChampionRanks!]!
+  getChampions(sessionId: String, language: Int): [Champions!]!
   getPlayer(sessionId: String, player: String!): Player!
 }
 
@@ -130,4 +132,69 @@ type Friends {
   name: String
   player_id: String
   ret_msg: String  
+}
+
+type ChampionRanks {
+  Assists: Int!
+  Deaths: Int!
+  Kills: Int!
+  Losses: Int!
+  MinionKills: Int!
+  Rank: Int!
+  Wins: Int!
+  Worshippers: Int!
+  champion: String
+  champion_id: String
+  player_id: String
+  ret_msg: String
+}
+
+type Champions {
+  Ability1: String
+  Ability2: String
+  Ability3: String
+  Ability4: String
+  Ability5: String
+  AbilityId1: Int!
+  AbilityId2: Int!
+  AbilityId3: Int!
+  AbilityId4: Int!
+  AbilityId5: Int!
+  Ability_1: Ability
+  Ability_2: Ability
+  Ability_3: Ability
+  Ability_4: Ability
+  Ability_5: Ability
+  ChampionAbility1_URL: String
+  ChampionAbility2_URL: String
+  ChampionAbility3_URL: String
+  ChampionAbility4_URL: String
+  ChampionAbility5_URL: String
+  ChampionCard_URL: String,
+  ChampionIcon_URL: String,
+  Cons: String
+  Health: Int!
+  Lore: String
+  Name: String
+  OnFreeRotation: String
+  Pantheon: String
+  Pros: String
+  Roles: String
+  Speed: Int!
+  Title: String
+  Type: String
+  abilityDescription1: String
+  abilityDescription2: String
+  abilityDescription4: String
+  abilityDescription5: String
+  id: Int!
+  latestChampion: String
+  ret_msg: String  
+}
+
+type Ability {
+  Description: String
+  Id: Int!
+  Summary: String
+  URL: String
 }

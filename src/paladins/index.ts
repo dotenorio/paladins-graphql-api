@@ -6,6 +6,8 @@ import getDataUsed from "./methods/get_data_used"
 import getDemoDetails from "./methods/get_demo_details"
 import getEsportsProLeagueDetails from "./methods/get_esports_pro_league_details"
 import getFriends from "./methods/get_friends"
+import getChampionRanks from "./methods/get_champion_ranks"
+import getChampions from "./methods/get_champions"
 import getPlayer from "./methods/get_player"
 
 export {
@@ -17,5 +19,7 @@ export {
   getDemoDetails,
   getEsportsProLeagueDetails,
   getFriends,
+  getChampionRanks,
+  getChampions,
   getPlayer
 }
