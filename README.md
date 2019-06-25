@@ -6,6 +6,8 @@ A wordefull GraphQL API to get any data from [Hirez Paladins API](https://docs.g
 
 Access https://paladins-graphql-api.dotenorio1.now.sh/ to see online demo.
 
+_**Remember:** You can send `sessionId` as parameter or as header with the key `X-Session-Id`, do as you want._
+
 ## How to configure locally
 
 Please clone this repository and install dependencies:
