@@ -1,21 +1,3 @@
-import { 
-  ping,
-  createSession,
-  testSession,
-  getHirezServerStatus,
-  getDataUsed,
-  getDemoDetails,
-  getEsportsProLeagueDetails,
-  getPlayer
-} from "../lib/paladins";
+import * as paladins from "../lib/paladins";
 
-export {
-  ping,
-  createSession,
-  testSession,
-  getHirezServerStatus,
-  getDataUsed,
-  getDemoDetails,
-  getEsportsProLeagueDetails,
-  getPlayer
-}
+export { paladins }

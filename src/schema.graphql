@@ -6,7 +6,7 @@ type Query {
   getDataUsed(sessionId: String): DataUsed!
   getDemoDetails(sessionId: String, matchId: Int!): DemoDetails!
   getEsportsProLeagueDetails(sessionId: String): [EsportsProLeagueDetails!]!
-  getFriends(sessionId: String, playerName: String!): Friends!
+  getFriends(sessionId: String, player: String!): [Friends!]!
   getPlayer(sessionId: String, player: String!): Player!
 }
 
@@ -125,8 +125,8 @@ type EsportsProLeagueDetails {
 }
 
 type Friends {
-  account_id: String!
-  name: String!
-  player_id: String!
+  account_id: String
+  name: String
+  player_id: String
   ret_msg: String  
 }

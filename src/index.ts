@@ -3,7 +3,7 @@ import { ApolloServer, gql } from 'apollo-server-koa'
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-import * as Query from './resolvers/Query'
+import { paladins as Query } from './resolvers/Query'
 
 const schema = readFileSync(join(__dirname, 'schema.graphql')).toString()
 const typeDefs = gql(schema)
