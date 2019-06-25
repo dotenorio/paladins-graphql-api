@@ -4,6 +4,7 @@ type Query {
   testSession(sessionId: String!): String!
   getPlayer(sessionId: String!, player: String!): Player!
   getHirezServerStatus(sessionId: String!): [HirezServerStatus!]!
+  getDataUsed(sessionId: String!): DataUsed!
 }
 
 type Player {
@@ -64,4 +65,15 @@ type HirezServerStatus {
   ret_msg: String,
   status: String,
   version: String
+}
+
+type DataUsed {
+  Active_Sessions: Int!
+  Concurrent_Sessions: Int!
+  Request_Limit_Daily: Int!
+  Session_Cap: Int!
+  Session_Time_Limit: Int!
+  Total_Requests_Today: Int!
+  Total_Sessions_Today: Int!
+  ret_msg: String
 }

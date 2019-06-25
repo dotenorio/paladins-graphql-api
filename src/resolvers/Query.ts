@@ -3,6 +3,7 @@ import {
   createSession,
   testSession,
   getHirezServerStatus,
+  getDataUsed,
   getPlayer
 } from "../lib/paladins";
 
@@ -11,5 +12,6 @@ export {
   createSession,
   testSession,
   getHirezServerStatus,
+  getDataUsed,
   getPlayer
 }
