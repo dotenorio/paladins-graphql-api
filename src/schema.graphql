@@ -6,6 +6,7 @@ type Query {
   getDataUsed(sessionId: String): DataUsed!
   getDemoDetails(sessionId: String, matchId: Int!): DemoDetails!
   getEsportsProLeagueDetails(sessionId: String): [EsportsProLeagueDetails!]!
+  getFriends(sessionId: String, playerName: String!): Friends!
   getPlayer(sessionId: String, player: String!): Player!
 }
 
@@ -107,18 +108,25 @@ type DemoDetails {
 
 type EsportsProLeagueDetails {
   away_team_clan_id: Int!
-  away_team_name: String!
-  away_team_tagname: String!
+  away_team_name: String
+  away_team_tagname: String
   home_team_clan_id: Int!
-  home_team_name: String!
-  home_team_tagname: String!
-  map_instance_id: String!
-  match_date: String!
-  match_number: String!
-  match_status: String!
-  matchup_id: String!
-  region: String!
+  home_team_name: String
+  home_team_tagname: String
+  map_instance_id: String
+  match_date: String
+  match_number: String
+  match_status: String
+  matchup_id: String
+  region: String
   ret_msg: String
-  tournament_name: String!
+  tournament_name: String
   winning_team_clan_id: Int!  
+}
+
+type Friends {
+  account_id: String!
+  name: String!
+  player_id: String!
+  ret_msg: String  
 }

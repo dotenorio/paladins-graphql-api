@@ -23,7 +23,8 @@ const buildUrl = ({
   sessionId = null,
   player = null,
   xSessionId = null,
-  matchId = null
+  matchId = null,
+  playerName = null
 }) => {
   const signature = generateSignature(method)
   const timestamp = getTimestamp()
@@ -36,6 +37,8 @@ const buildUrl = ({
     extraParameter = player
   } else if (matchId) {
     extraParameter = matchId
+  } else if (matchId) {
+    extraParameter = playerName
   }
 
   let url = [
@@ -158,7 +161,18 @@ const getEsportsProLeagueDetails = async (parent, { sessionId = null }, { xSessi
   }))
 
   return data
-} 
+}
+
+const getFriends = async (parent, { sessionId = null, playerName }, { xSessionId = null }) => {
+  const { data } = await axios.get(buildUrl({
+    method: 'getfriends',
+    sessionId,
+    playerName,
+    xSessionId
+  }))
+
+  return data
+}
 
 const getPlayer = async (parent, { sessionId = null, player }, { xSessionId = null }) => {
   const { data } = await axios.get(buildUrl({
@@ -189,5 +203,6 @@ export {
   getDataUsed,
   getDemoDetails,
   getEsportsProLeagueDetails,
+  getFriends,
   getPlayer
 }
